@@ -1,1 +1,1 @@
-# todo-list-app
+# To-Do List App - Learning Project
