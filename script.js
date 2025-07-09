@@ -1,10 +1,7 @@
-const addTask = document.getElementById('add-task');
-const cancelTask = document.getElementById('cancel-task');
+const dialogButtons = {
+  add: document.getElementById('add-task'),
+  cancel: document.getElementById('cancel-task'),
+};
 
-addTask.addEventListener('click', () => {
-  document.getElementById('modern-dialog').showModal();
-});
-
-cancelTask.addEventListener('click', () => {
-  document.getElementById('modern-dialog').close();
-});
+dialogButtons.add.addEventListener('click', () => document.getElementById('modern-dialog').showModal());
+dialogButtons.cancel.addEventListener('click', () => document.getElementById('modern-dialog').close());
