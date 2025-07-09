@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+  --background-main: #1b1b1e;
+  --dashboard-card: #373f51;
+  --list-card: #a9bcd0;
+  --color-heading: #58a4b0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  background: var(--background-main);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.todo-section,
+.progress-section {
+  background-color: var(--dashboard-card);
+}
+
+.todo-header {
+  display: flex;
+  align-items: center;
+}
+
+.todo-header h1,
+.progress-header h1 {
+  color: var(--color-heading);
+  padding: 1rem;
+}
+
+.list-container {
+  background-color: red;
+
+}
+
+.todo-list {
+  list-style-type: none;
+
+}
