@@ -10,8 +10,6 @@ const dialog = document.getElementById('modern-dialog');
 dialogButtons.add.addEventListener('click', () => dialog.showModal());
 dialogButtons.cancel.addEventListener('click', () => dialog.close());
 
-
-
 // Tasks and Local Storage
 let tasks = JSON.parse(localStorage.getItem('todo-tasks')) || [];
 const taskInput = document.querySelector('input');
