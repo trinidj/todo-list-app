@@ -1,3 +1,5 @@
+import { renderTasks } from './helpers/renderTasks.js';
+
 // Dialog 
 const dialogButtons = {
   add: document.getElementById('add-task'),
@@ -6,36 +8,23 @@ const dialogButtons = {
 };
 
 const dialog = document.getElementById('modern-dialog');
+const taskInput = document.querySelector('input');
+const todoList = document.getElementById('todo-list');
 
 dialogButtons.add.addEventListener('click', () => dialog.showModal());
 dialogButtons.cancel.addEventListener('click', () => dialog.close());
 
 // Tasks and Local Storage
 let tasks = JSON.parse(localStorage.getItem('todo-tasks')) || [];
-const taskInput = document.querySelector('input');
-const todoList = document.getElementById('todo-list');
 
-tasks.forEach(task => {
-  const li = document.createElement('li');
-  li.className = 'list-item';
-  li.textContent = task;
-  todoList.appendChild(li);
-});
+renderTasks(tasks, todoList);
 
 dialogButtons.submit.addEventListener('click', () => {
   try {
     tasks.push(taskInput.value);
     localStorage.setItem('todo-tasks', JSON.stringify(tasks));
 
-    console.log(tasks);
-
-    todoList.innerHTML = '';
-    tasks.forEach(task => {
-      const li = document.createElement('li');
-      li.className = 'list-item';
-      li.textContent = task;
-      todoList.appendChild(li);
-    });
+    renderTasks(tasks, todoList);
 
     taskInput.value = '';
     dialog.close();
