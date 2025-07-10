@@ -1,3 +1,4 @@
+// Dialog 
 const dialogButtons = {
   add: document.getElementById('add-task'),
   cancel: document.getElementById('cancel-task'),
@@ -5,10 +6,23 @@ const dialogButtons = {
 };
 
 const dialog = document.getElementById('modern-dialog');
-const todoList = document.getElementById('todo-list');
-const taskInput = document.querySelectorAll('.task-input');
 
+dialogButtons.add.addEventListener('click', () => dialog.showModal());
+dialogButtons.cancel.addEventListener('click', () => dialog.close());
+
+// Tasks and Local Storage
 let tasks = [];
 
-dialogButtons.add.addEventListener('click', () => document.getElementById('modern-dialog').showModal());
-dialogButtons.cancel.addEventListener('click', () => document.getElementById('modern-dialog').close());
+const taskInput = document.querySelector('input');
+
+dialogButtons.submit.addEventListener('click', () => {
+  try {
+    tasks.push(taskInput.value);
+    localStorage.setItem('tasks', tasks);
+    
+    dialog.close();
+  } catch (error) {
+    console.error('Failed to add task:', error);
+    alert('Something went wrong while adding your task. Please try again.');
+  }
+});
