@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 :root {
-  --background-main: #1b1b1e;
-  --dashboard-card: #373f51;
-  --list-card: #a9bcd0;
-  --color-heading: #58a4b0;
+  --background-main: hsl(240, 5%, 11%);
+  --dashboard-card: hsl(223, 19%, 27%);
+  --list-card: hsl(208, 29%, 74%);
+  --color-heading: hsl(189, 39%, 52%);
+
+  --list-card-dark: hsl(208, 29%, 54%);
+  --color-heading-dark: hsl(189, 39%, 32%);
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -73,7 +76,14 @@ body {
   justify-content: space-between;
 }
 
-.add-task {
+.task-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.add-task,
+.select-task {
   background: none;
   border: none;
   padding: 0;
@@ -81,6 +91,13 @@ body {
   cursor: pointer;
   display: flex;
   color: var(--color-heading);
+  border-radius: 25%; 
+  transition: all 0.2s ease;
+}
+
+.add-task:hover,
+.select-task:hover {
+  background: var(--color-heading-dark); 
 }
 
 .todo-header,
@@ -106,6 +123,12 @@ body {
   padding: 0.8rem;
   width: 350px;
   border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.list-item:hover {
+  cursor: pointer;
+  transform: scale(0.98);
 }
 
 dialog {
@@ -148,6 +171,7 @@ dialog::backdrop {
   padding: var(--spacing-xs);
   border: none;
   font-size: var(--text-sm);
+  border-radius: 5px;
 }
 
 .task-input:focus {
@@ -164,4 +188,10 @@ dialog::backdrop {
   background: var(--color-heading);
   color: #ffffff;
   border: 1px solid var(--color-heading);
+}
+
+.no-tasks {
+  text-align: center;
+  color: var(--background-main);
+  padding: 20px;
 }
