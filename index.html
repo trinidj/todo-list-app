@@ -9,7 +9,7 @@
 </head>
 <body>
   <main class="dashboard">
-    <div class="dashboard-grid">
+    <div class="dashboard-grid">    
       <section class="todo-section">
         <header class="todo-header">
           <h1>To-Do List</h1>
@@ -32,7 +32,16 @@
             </header>
 
             <div class="dialog-form">
-              <input class="task-input" type="text" placeholder="Enter a new task...">
+              <div class="input-fields">
+                <label for="title">Title:</label>
+                <input id="task-title" class="task-title" type="text" placeholder="Enter a new task...">
+                
+                <!-- <select class="task-priority">
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select> -->
+              </div>
 
               <div class="dialog-actions">
                 <button id="cancel-task" class="cancel-task">

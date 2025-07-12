@@ -68,7 +68,7 @@ body {
 
 .todo-section {
   width: 380px;
-}
+}                                                           
 
 .todo-header {
   display: flex;
@@ -154,6 +154,16 @@ dialog::backdrop {
   padding-top: 0;
 }
 
+.input-fields {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.input-fields > label {
+  color: #ffffff;
+}
+
 .dialog-actions {
   display: flex;
   justify-content: space-between;
@@ -167,14 +177,14 @@ dialog::backdrop {
   border-radius: 5px;
 }
 
-.task-input {
+.task-title {
   padding: var(--spacing-xs);
   border: none;
   font-size: var(--text-sm);
   border-radius: 5px;
 }
 
-.task-input:focus {
+.task-title:focus {
   outline: 2px solid var(--color-heading);
 }
 

@@ -16,7 +16,7 @@ export function renderTasks(tasks, todoList) {
   tasks.forEach(task => {
     const li = document.createElement('li');
     li.className = 'list-item';
-    li.textContent = task;
+    li.textContent = task.title;
     todoList.appendChild(li);
   });
 }

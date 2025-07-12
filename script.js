@@ -7,26 +7,33 @@ const dialogButtons = {
   submit: document.getElementById('submit-task'),
 };
 
-const dialog = document.getElementById('modern-dialog');
-const taskInput = document.querySelector('input');
-const todoList = document.getElementById('todo-list');
-
 dialogButtons.add.addEventListener('click', () => dialog.showModal());
 dialogButtons.cancel.addEventListener('click', () => dialog.close());
 
-// Tasks and Local Storage
-let tasks = JSON.parse(localStorage.getItem('todo-tasks')) || [];
 
-renderTasks(tasks, todoList);
+
+const dialog = document.getElementById('modern-dialog');
+const todoList = document.getElementById('todo-list');
+const taskTitle = document.getElementById('task-title');
+              
+// Tasks and Local Storage
+let tasksArray = JSON.parse(localStorage.getItem('todo-tasks')) || [];
+
+renderTasks(tasksArray, todoList);
 
 dialogButtons.submit.addEventListener('click', () => {
   try {
-    tasks.push(taskInput.value);
-    localStorage.setItem('todo-tasks', JSON.stringify(tasks));
+    // collect task data from form
+    const newTask = {
+      title: taskTitle.value,                                         
+    };
 
-    renderTasks(tasks, todoList);
+    tasksArray.push(newTask);
+    localStorage.setItem('todo-tasks', JSON.stringify(tasksArray));
 
-    taskInput.value = '';
+    renderTasks(tasksArray, todoList);
+
+    taskTitle.value = '';
     dialog.close();
   } catch (error) {
     console.error('Failed to add task:', error);
