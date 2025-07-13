@@ -1,4 +1,5 @@
 import { renderTasks } from './helpers/renderTasks.js';
+import './Task.js';
 
 // Dialog 
 const dialogButtons = {
@@ -13,8 +14,9 @@ dialogButtons.cancel.addEventListener('click', () => dialog.close());
 const dialog = document.getElementById('modern-dialog');
 const todoList = document.getElementById('todo-list');
 const taskTitle = document.getElementById('task-title');
-          
-// Tasks and Local Storage
+         
+
+
 let tasksArray = [];
 
 renderTasks(tasksArray, todoList);
@@ -37,10 +39,3 @@ dialogButtons.submit.addEventListener('click', () => {
   }
 });
 
-const tasks = document.querySelectorAll('.list-item');
-
-tasks.forEach(task => {
-  task.addEventListener('click', () => {
-    console.log(`Task ${task.id} Clicked!`);
-  });
-});

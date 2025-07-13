@@ -1,13 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 :root {
-  --background-main: hsl(240, 5%, 11%);
-  --dashboard-card: hsl(223, 19%, 27%);
-  --list-card: hsl(208, 29%, 74%);
-  --color-heading: hsl(189, 39%, 52%);
-
-  --list-card-dark: hsl(208, 29%, 54%);
-  --color-heading-dark: hsl(189, 39%, 32%);
+  --background-main: #1b1b1e;
+  --dashboard-card: #373f51;
+  --list-card: #a9bcd0;
+  --color-heading: #58a4b0;
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -83,32 +80,43 @@ body {
 }
 
 .add-task,
-.select-task {
+.select-task,
+.delete-task {
   background: none;
   border: none;
-  padding: 0;
-  margin: 0;
+  padding: var(--spacing-xs);
   cursor: pointer;
   display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.add-task,
+.select-task {
   color: var(--color-heading);
   border-radius: 25%; 
   transition: all 0.2s ease;
 }
 
-.add-task:hover,
-.select-task:hover {
-  background: var(--color-heading-dark); 
+.delete-task:hover {
+  background-color: hsl(from red h s 70%);
+  color: hsl(from red h s 90%);
+}
+
+.add-task { 
+  background: hsl(from var(--color-heading) h s calc(l + 50%)); 
 }
 
 .todo-header,
 .progress-header h1,
 .dialog-header h1 {
   color: var(--color-heading);
-  padding: var(--spacing-base);
+  padding: var(--spacing-lg);
 }
 
 .list-container {
-  padding: var(--spacing-base);
+  padding: var(--spacing-lg);
   padding-top: 0;
 }
 
@@ -119,9 +127,11 @@ body {
 }
 
 .list-item {
+  display: flex;
+  justify-content: space-between;
   background-color: var(--list-card);
   padding: 0.8rem;
-  width: 350px;
+  width: auto;
   border-radius: 5px;
   transition: all 0.2s ease;
 }
