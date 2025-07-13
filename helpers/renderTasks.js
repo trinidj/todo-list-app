@@ -1,3 +1,5 @@
+import { Trash } from 'https://esm.sh/lucide';
+
 /**
  * @param { Array } tasks
  * @param { HTMLElement } todoList
@@ -13,9 +15,10 @@ export function renderTasks(tasks, todoList) {
     return;
   };
 
-  tasks.forEach(task => {
+  tasks.forEach((task, index) => {
     const li = document.createElement('li');
     li.className = 'list-item';
+    li.id = `task-${index}`;
     li.textContent = task.title;
     todoList.appendChild(li);
   });
