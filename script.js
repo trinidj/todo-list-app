@@ -23,13 +23,15 @@ dialogButtons.submit.addEventListener('click', () => {
   try {
     // collect task info from form to create a new task object
     const newTask = {
-      title: taskTitle.value,                                        
+      title: taskTitle.value, 
+      priority: document.getElementById('task-priority').value,                                   
     };
 
     tasksArray.push(newTask); // adds the new task to an array
     localStorage.setItem('todo-tasks', JSON.stringify(tasksArray))
     renderTasks(tasksArray, todoList); // updates the display
 
+    console.log(newTask);
     taskTitle.value = '';
     dialog.close();
   } catch (error) {

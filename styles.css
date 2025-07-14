@@ -48,6 +48,7 @@
   margin: 0;
   padding: 0;
   line-height: 1.5;
+  font-size: 16px;
   font-family: 'Ubuntu', sans-serif;
 }
 
@@ -78,6 +79,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.todo-header > h1 {
+  font-size: var(--text-2xl);
 }
 
 .todo-actions {
@@ -134,11 +139,13 @@ body {
 }
 
 .empty-state-title {
+  font-size: var(--text-base);
+  font-weight: 400;
   color: hsl(from var(--base-color) h s calc(l + 30));
 }
 
 .empty-state-subtitle {
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   color: hsl(from var(--base-color) h s calc(l + 20));
 }
 
@@ -224,7 +231,7 @@ dialog::backdrop {
 }
 
 input[type="text"],
-.task-priority {
+#task-priority {
   padding: var(--spacing-xs);
   border: none;
   font-size: var(--text-sm);
@@ -253,6 +260,11 @@ input[type="text"]:focus {
   gap: 0.5rem;
   text-align: center;
   color: hsl(from #ffffff h s calc(l - 5) / 0.5);
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
 }
 
 .task-content {
@@ -292,7 +304,48 @@ input[type="text"]:focus {
   color: white;
 }
 
+.task-title {
+  font-size: var(--text-base);
+}
+
 .task-title.completed {
   opacity: 0.5;
   text-decoration: line-through;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.task-priority {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  padding-inline: var(--spacing-sm);
+  border: 1px solid;
+  border-radius: 10px;
+  font-size: var(--text-xs);
+  gap: var(--spacing-xs);
+  width: fit-content;
+}
+
+.task-priority > span {
+  font-size: var(--text-xs);
+}
+
+.priority-low {
+  border-color: #22c55e;
+  color: #22c55e;
+}
+
+.priority-medium {
+  border-color: #f59e0b;
+  color: #f59e0b;
+}
+
+.priority-high {
+  border-color: #ef4444;
+  color: #ef4444;
 }

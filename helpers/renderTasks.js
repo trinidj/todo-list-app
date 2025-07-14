@@ -9,11 +9,11 @@ export function renderTasks(tasks, todoList) {
     const div = document.createElement('div');
     div.className = 'no-tasks';
     
-    div.innerHTML = `
+    div.innerHTML = /*html*/`
       <p class="empty-state-title">No Tasks Yet</p>
       <p class="empty-state-subtitle">Add your first task to get started</p>
     `
-  
+
     todoList.appendChild(div);
     return;
   };
