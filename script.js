@@ -17,7 +17,7 @@ const taskTitle = document.getElementById('task-title');
          
 
 
-let tasksArray = [];
+let tasksArray = JSON.parse(localStorage.getItem('todo-tasks')) || [];
 
 renderTasks(tasksArray, todoList);
 
@@ -29,6 +29,7 @@ dialogButtons.submit.addEventListener('click', () => {
     };
 
     tasksArray.push(newTask); // adds the new task to an array
+    localStorage.setItem('todo-tasks', JSON.stringify(tasksArray))
     renderTasks(tasksArray, todoList); // updates the display
 
     taskTitle.value = '';
@@ -36,5 +37,12 @@ dialogButtons.submit.addEventListener('click', () => {
   } catch (error) {
     console.error('Failed to add task:', error);
     alert('Something went wrong while adding your task. Please try again.');
+  }
+});
+
+// Event Delegation
+document.getElementById('todo-list').addEventListener('click', function(e) {
+  if (e.target.classList.contains('delete-task') || e.target.closest('.delete-task')) {
+    console.log('Delete Button Clicked!');
   }
 });
