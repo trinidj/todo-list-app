@@ -14,6 +14,10 @@
 
   --delete-task-color: hsl(from rgb(248, 98, 98) h s calc(l + 5));
 
+  --low-priority: #22c55e;
+  --medium-priority: #f59e0b;
+  --high-priority: #ef4444;
+
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -336,16 +340,19 @@ input[type="text"]:focus {
 }
 
 .priority-low {
-  border-color: #22c55e;
-  color: #22c55e;
+  border-color: var(--low-priority);
+  color: var(--low-priority);
+  background-color: hsl(from var(--low-priority) h s l / 0.1);
 }
 
 .priority-medium {
-  border-color: #f59e0b;
-  color: #f59e0b;
+  border-color: var(--medium-priority);
+  color: var(--medium-priority);
+  background-color: hsl(from var(--medium-priority) h s l / 0.1);
 }
 
 .priority-high {
-  border-color: #ef4444;
-  color: #ef4444;
+  border-color: var(--high-priority);
+  color: var(--high-priority);
+  background-color: hsl(from var(--high-priority) h s l / 0.1);
 }
