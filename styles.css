@@ -270,6 +270,10 @@ input[type="text"]:focus {
   border-color: hsl(from var(--accent-color) h s calc(l - 10));
 } 
 
+.task-item.completed {
+  opacity: 0.5;
+}
+
 .task-checkbox.completed {
   background-color: hsl(from var(--accent-color) h s calc(l - 10));
   border-color: hsl(from var(--accent-color) h s calc(l - 10));

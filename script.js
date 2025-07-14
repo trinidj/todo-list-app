@@ -52,16 +52,17 @@ todoList.addEventListener('click', e => {
   }
 });
 
-// Event Delegation for Checkbox children of todolist
+// Event Delegation for Checkbox children of todo list
 todoList.addEventListener('click', e => {
   if (e.target.classList.contains('task-checkbox') || e.target.closest('.task-checkbox')) {
     const button = e.target;
     const taskItem = button.closest('.task-item');
     const taskText = taskItem.querySelector('.task-title');
 
+    taskItem.classList.toggle('completed');
     button.classList.toggle('completed');
     taskText.classList.toggle('completed');
-    button.textContent = button.classList.contains('completed') ? `${data}` : '';
+    button.textContent = button.classList.contains('completed') ? `` : '';
   }
 });
 
