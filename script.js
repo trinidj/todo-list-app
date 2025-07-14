@@ -38,4 +38,3 @@ dialogButtons.submit.addEventListener('click', () => {
     alert('Something went wrong while adding your task. Please try again.');
   }
 });
-
