@@ -14,6 +14,7 @@ dialogButtons.cancel.addEventListener('click', () => dialog.close());
 const dialog = document.getElementById('modern-dialog');
 const todoList = document.getElementById('todo-list');
 const taskTitle = document.getElementById('task-title');
+const checkboxButtons = document.querySelectorAll('.checkbox-btn');
          
 let tasksArray = JSON.parse(localStorage.getItem('todo-tasks')) || [];
 
@@ -38,7 +39,7 @@ dialogButtons.submit.addEventListener('click', () => {
   }
 });
 
-// Event Delegation for children of the todo list
+// Event Delegation for delete children of the todo list
 todoList.addEventListener('click', e => {
   if (e.target.classList.contains('delete-task') || e.target.closest('.delete-task')) {
     const taskElement = e.target.closest('[data-index]');
@@ -51,3 +52,15 @@ todoList.addEventListener('click', e => {
     renderTasks(tasksArray, todoList);
   }
 });
+
+// Event Delegation for Checkbox children of todolist
+todoList.addEventListener('click', e => {
+  if (e.target.classList.contains('task-checkbox') || e.target.closest('.task-checkbox')) {
+    const button = e.target;
+
+    button.classList.toggle('completed');
+    button.textContent = button.classList.contains('completed') ? `${data}` : '';
+  }
+});
+
+

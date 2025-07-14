@@ -7,12 +7,12 @@
   --base-lighter: hsl(from var(--base-color) h s calc(l + 20));
   
   --base-dark: hsl(from var(--base-color) h s calc(l - 2));
-  --base-darker: hsl(from var(--base-color) h s calc(l - 5) / 0.5);
+  --base-darker: hsl(from var(--base-color) h s calc(l - 5));
 
   --heading-color: #58a4b0;
-  --accent-color: hsl(from var(--heading-color) h s calc(l - 5) / 0.5);
+  --accent-color: hsl(from var(--heading-color) h s calc(l - 5));
 
-
+  --checkbox-color: green;
 
 
   --text-xs: 0.75rem;
@@ -107,6 +107,10 @@ body {
   transition: all 0.2s ease;
 }
 
+.delete-task {
+  color: hsl(from #ffffff h s calc(l - 5) / 0.5);
+}
+
 .delete-task:hover {
   background-color: hsl(from red h s 70%);
   color: hsl(from red h s 90%);
@@ -114,15 +118,16 @@ body {
 
 .add-task { 
   background-color: hsl(from var(--accent-color) h s calc(l - 5) / 0.3);
+  transition: all 0.2s ease-in-out;
 }
 
 .add-task:hover {
-  background-color: hsl(from var(--accent-color) h s calc(l - 10) / 0.3);
+  background-color: hsl(from var(--accent-color) h s calc(l - 15) / 0.3);
+  transform: scale(1.05);
 }
 
-.todo-header,
-.progress-header h1 {
-  color: var(--heading-color);
+.todo-header {
+  color: #ffffff;
   padding: var(--spacing-lg);
 }
 
@@ -145,10 +150,11 @@ body {
 .list-item {
   display: flex;
   justify-content: space-between;
-  background-color: var(--accent-color);
+  background-color: hsl(from var(--base-color) h s calc(l - 4) / 0.5);
   padding: 0.8rem;
   width: auto;
   border-radius: 5px;
+  border: 2px solid hsl(from var(--accent-color) h s calc(l - 2) / 0.5);
   transition: all 0.2s ease;
 }
 
@@ -158,7 +164,7 @@ body {
 }
 
 dialog {
-  background-color: var(--base-color);
+  background-color: var(--base-dark);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -168,15 +174,16 @@ dialog {
 }
 
 dialog::backdrop {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgb(0, 0, 0, 0.3);
 }
 
 .dialog-header h1 {
   font-size: var(--text-lg);
+  padding: var(--spacing-lg)
 }
 
 .dialog-form {
-  padding: var(--spacing-base);
+  padding: var(--spacing-lg);
   padding-top: 0;
 }
 
@@ -249,6 +256,22 @@ dialog::backdrop {
   border: 2px solid #ccc;
   border-radius: 50%;
   margin-right: 8px;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease-in-out;
   background: none;
+}
+
+.task-content > h1 {
+  font-size: var(--text-base);
+  font-weight: 400;
+}
+
+.task-checkbox:hover {
+  cursor: pointer;
+  border-color: var(--accent-color);
+} 
+
+.task-checkbox.completed {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
 }
