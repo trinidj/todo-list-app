@@ -40,7 +40,7 @@ dialogButtons.submit.addEventListener('click', () => {
   }
 });
 
-// Event Delegation
+// Event Delegation for delete buttons
 document.getElementById('todo-list').addEventListener('click', function(e) {
   if (e.target.classList.contains('delete-task') || e.target.closest('.delete-task')) {
     console.log('Delete Button Clicked!');
