@@ -6,6 +6,7 @@ class TaskElement extends HTMLElement {
     this.innerHTML = `
       <li class="list-item">
         <div class="task-content">
+          <button class="task-checkbox"></button>
           ${taskData.title || ''}
         </div>
         <button class="delete-task">

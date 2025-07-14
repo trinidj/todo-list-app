@@ -23,7 +23,6 @@ dialogButtons.submit.addEventListener('click', () => {
   try {
     // collect task info from form to create a new task object
     const newTask = {
-      index: tasksArray.length,
       title: taskTitle.value,                                        
     };
 
@@ -39,10 +38,10 @@ dialogButtons.submit.addEventListener('click', () => {
   }
 });
 
-// Event Delegation for delete buttons
-document.getElementById('todo-list').addEventListener('click', e => {
+// Event Delegation for children of the todo list
+todoList.addEventListener('click', e => {
   if (e.target.classList.contains('delete-task') || e.target.closest('.delete-task')) {
-    const taskElement = e.target.contains('data-index');
+    const taskElement = e.target.closest('[data-index]');
     const taskIndex = parseInt(taskElement.getAttribute('data-index'));
         
     tasksArray.splice(taskIndex, 1);
