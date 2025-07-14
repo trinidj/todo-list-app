@@ -8,7 +8,12 @@ export function renderTasks(tasks, todoList) {
   if (tasks.length === 0) {
     const div = document.createElement('div');
     div.className = 'no-tasks';
-    div.textContent = 'No Tasks';
+    
+    div.innerHTML = `
+      <p class="empty-state-title">No Tasks Yet</p>
+      <p class="empty-state-subtitle">Add your first task to get started</p>
+    `
+  
     todoList.appendChild(div);
     return;
   };
