@@ -14,7 +14,6 @@ dialogButtons.cancel.addEventListener('click', () => dialog.close());
 const dialog = document.getElementById('modern-dialog');
 const todoList = document.getElementById('todo-list');
 const taskTitle = document.getElementById('task-title');
-const checkboxButtons = document.querySelectorAll('.checkbox-btn');
          
 let tasksArray = JSON.parse(localStorage.getItem('todo-tasks')) || [];
 
@@ -57,10 +56,15 @@ todoList.addEventListener('click', e => {
 todoList.addEventListener('click', e => {
   if (e.target.classList.contains('task-checkbox') || e.target.closest('.task-checkbox')) {
     const button = e.target;
+    const taskItem = button.closest('.task-item');
+    const taskText = taskItem.querySelector('.task-title');
 
     button.classList.toggle('completed');
+    taskText.classList.toggle('completed');
     button.textContent = button.classList.contains('completed') ? `${data}` : '';
   }
 });
+
+
 
 

@@ -81,7 +81,7 @@ body {
   justify-content: space-between;
 }
 
-.task-actions {
+.todo-actions {
   display: flex;
   gap: var(--spacing-sm);
   align-items: center;
@@ -136,7 +136,7 @@ body {
   padding: var(--spacing-base);
 }
 
-.list-container {
+.tasks-container {
   padding: var(--spacing-lg);
   padding-top: 0;
 }
@@ -147,7 +147,7 @@ body {
   gap: var(--spacing-sm);
 }
 
-.list-item {
+.task-item {
   display: flex;
   justify-content: space-between;
   background-color: hsl(from var(--base-color) h s calc(l - 4) / 0.5);
@@ -212,7 +212,7 @@ dialog::backdrop {
   border-radius: 5px;
 }
 
-.task-title,
+input[type="text"],
 .task-priority {
   padding: var(--spacing-xs);
   border: none;
@@ -220,7 +220,7 @@ dialog::backdrop {
   border-radius: 5px;
 }
 
-.task-title:focus {
+input[type="text"]:focus {
   outline: 2px solid var(--heading-color);
 }
 
@@ -267,11 +267,16 @@ dialog::backdrop {
 
 .task-checkbox:hover {
   cursor: pointer;
-  border-color: var(--accent-color);
+  border-color: hsl(from var(--accent-color) h s calc(l - 10));
 } 
 
 .task-checkbox.completed {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
+  background-color: hsl(from var(--accent-color) h s calc(l - 10));
+  border-color: hsl(from var(--accent-color) h s calc(l - 10));
   color: white;
+}
+
+.task-title.completed {
+  opacity: 0.5;
+  text-decoration: line-through;
 }
