@@ -279,6 +279,7 @@ input[type="text"]:focus {
 }
 
 .task-checkbox {
+  display: flex;
   content: "";
   width: 16px;
   height: 16px;
@@ -286,6 +287,8 @@ input[type="text"]:focus {
   border-radius: 50%;
   transition: all 0.1s ease-in-out;
   background: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .task-content > h1 {
@@ -306,6 +309,11 @@ input[type="text"]:focus {
   background-color: hsl(from var(--accent-color) h s calc(l - 10));
   border-color: hsl(from var(--accent-color) h s calc(l - 10));
   color: white;
+}
+
+.checkmk-icon.completed {
+  color: white;
+  visibility: visible;
 }
 
 .task-title {
@@ -355,4 +363,8 @@ input[type="text"]:focus {
   border-color: var(--high-priority);
   color: var(--high-priority);
   background-color: hsl(from var(--high-priority) h s l / 0.1);
+}
+
+.checkmk-icon {
+  visibility: hidden;
 }
