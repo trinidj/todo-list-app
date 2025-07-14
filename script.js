@@ -1,5 +1,5 @@
 import { renderTasks } from './helpers/renderTasks.js';
-import './Task.js';
+import './TaskElement.js';
 
 // Dialog 
 const dialogButtons = {
@@ -15,8 +15,6 @@ const dialog = document.getElementById('modern-dialog');
 const todoList = document.getElementById('todo-list');
 const taskTitle = document.getElementById('task-title');
          
-
-
 let tasksArray = JSON.parse(localStorage.getItem('todo-tasks')) || [];
 
 renderTasks(tasksArray, todoList);
@@ -25,6 +23,7 @@ dialogButtons.submit.addEventListener('click', () => {
   try {
     // collect task info from form to create a new task object
     const newTask = {
+      index: tasksArray.length,
       title: taskTitle.value,                                        
     };
 
@@ -41,8 +40,15 @@ dialogButtons.submit.addEventListener('click', () => {
 });
 
 // Event Delegation for delete buttons
-document.getElementById('todo-list').addEventListener('click', function(e) {
+document.getElementById('todo-list').addEventListener('click', e => {
   if (e.target.classList.contains('delete-task') || e.target.closest('.delete-task')) {
-    console.log('Delete Button Clicked!');
+    const taskElement = e.target.contains('data-index');
+    const taskIndex = parseInt(taskElement.getAttribute('data-index'));
+        
+    tasksArray.splice(taskIndex, 1);
+    
+    localStorage.setItem('todo-tasks', JSON.stringify(tasksArray));
+    
+    renderTasks(tasksArray, todoList);
   }
 });

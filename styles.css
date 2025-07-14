@@ -138,7 +138,7 @@ body {
 
 .list-item:hover {
   cursor: pointer;
-  transform: scale(0.98);
+  transform: scale(1.05);
 }
 
 dialog {
