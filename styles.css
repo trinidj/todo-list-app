@@ -96,7 +96,7 @@ body {
 }
 
 .add-task,
-.select-task,
+.filter-task,
 .delete-task {
   background: none;
   border: none;
@@ -104,12 +104,6 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  transition: all 0.3s ease;
-  border-radius: 5px;
-}
-
-.add-task,
-.delete-task {
   border-radius: 25%; 
   transition: all 0.2s ease-in-out;
 }
@@ -119,21 +113,31 @@ body {
   color: var(--heading-color);
 }
 
+.filter-task {
+  background-color: hsl(from var(--base-light) h s l / 0.5);
+  color: var(--base-color-lighter);
+}
+
 .delete-task {
   color: hsl(from #ffffff h s calc(l - 5) / 0.5);
 }
 
 .add-task:hover,
+.filter-task:hover,
 .delete-task:hover {
-  background-color: hsl(from var(--delete-task-color) h s l / 0.3);
-  transform: scale(1.10);
+  transform: scale(1.10); 
 }
 
 .add-task:hover {
   background-color: hsl(from var(--accent-color) h s calc(l - 15) / 0.3);
 }
 
+.filter-task:hover {
+  background-color: hsl(from var(--base-light) h s calc(l - 2) / 0.3);
+}
+
 .delete-task:hover {
+  background-color: hsl(from var(--delete-task-color) h s l / 0.3);
   color: hsl(from var(--delete-task-color) h s calc(l + 10) / 0.5);
 }
 
