@@ -24,7 +24,8 @@ dialogButtons.submit.addEventListener('click', () => {
     // collect task info from form to create a new task object
     const newTask = {
       title: taskTitle.value, 
-      priority: document.getElementById('task-priority').value,                                   
+      priority: document.getElementById('task-priority').value,
+      completed: false,                                   
     };
 
     tasksArray.push(newTask); // adds the new task to an array
@@ -66,6 +67,8 @@ todoList.addEventListener('click', e => {
     taskItem.classList.toggle('completed');
     button.classList.toggle('completed');
     taskText.classList.toggle('completed');
+    
+    taskItem.completed = !taskItem.completed ? true : false
   }
 });
 
