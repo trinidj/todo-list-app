@@ -219,6 +219,15 @@ dialog::backdrop {
   gap: var(--spacing-lg);
 }
 
+.task-title-input,
+.task-priority-input {
+  margin-top: var(--spacing-sm);
+}
+
+.task-priority-input {
+  
+}
+
 .title-field > label,
 .priority-field > label {
   display: block;
