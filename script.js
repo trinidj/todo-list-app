@@ -4,6 +4,7 @@ import { renderTasks } from './helpers/renderTasks.js';
 import './Task.js';
 
 const todoList = document.getElementById('todo-list');
+const filterTasks = document.getElementById('filter-actions');
 const taskManager = new TaskManager();
 
 function updateDisplay() {
@@ -48,6 +49,19 @@ todoList.addEventListener('click', e => {
     taskText.classList.toggle('completed', isCompleted);
   }
 });
+
+// Event Delegation for Filtering Tasks by Priority
+filterTasks.addEventListener('click', e => {
+  const button = e.target.classList.contains('filter-button') ? e.target : e.target.closest('.filter-button');
+
+  if (button) {
+    button.classList.toggle('active');
+
+    const isActive = button.classList.contains('active');
+    button.dataset.state = isActive;
+  }
+});
+
 
 updateDisplay();
 
