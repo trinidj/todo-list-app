@@ -25,7 +25,7 @@ todoList.addEventListener('click', e => {
     updateDisplay();
   }
 
-  // Handle Toggle
+  // Handle Checkbox Toggle
   if (e.target.classList.contains('task-checkbox') || e.target.closest('.task-checkbox')) {
     const button = e.target.closest('.task-checkbox') || e.target;
     const taskElement = button.closest('[data-index]');
