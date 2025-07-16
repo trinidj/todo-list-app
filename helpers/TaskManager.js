@@ -30,9 +30,8 @@ export class TaskManager {
 
       task.completed = !task.completed;
 
-      this.tasks.splice(index, 1);
-
       if (task.completed) {
+        this.tasks.splice(index, 1);
         this.tasks.push(task);
       }
 
