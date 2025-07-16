@@ -1,7 +1,7 @@
 import { DialogManager } from './helpers/DialogManager.js';
 import { TaskManager } from './helpers/TaskManager.js';
 import { renderTasks } from './helpers/renderTasks.js';
-import './TaskElement.js';
+import './Task.js';
 
 const todoList = document.getElementById('todo-list');
 const taskManager = new TaskManager();
