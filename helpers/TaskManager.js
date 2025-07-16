@@ -1,35 +1,26 @@
 export class TaskManager {
   constructor() {
-    this.tasks = this.loadTasks();
-    this.observers = []; // When a task is completed, other functions will be notified
+    this.tasks = JSON.parse(localStorage.getItem('todo-tasks')) || [];
   }
 
-  loadTasks = () => {
-    return JSON.parse(localStorage.getItem('todo-tasks')) || [];
+  getAllTasks = () => {
+    return this.tasks;
   }
 
-  saveTasks = () => {
-    localStorage.setItem('todo-tasks', JSON.stringify(this.tasks));
-    this.notifyObservers();
-  }
-
-  addTask = (taskData) => {
+  addTask = (title, priority) => {
     const newTask = {
-      title: taskData.title,
-      priority: taskData.priority,
+      title: title,
+      priority: priority,
       completed: false,
     };
 
     this.tasks.push(newTask);
-    this.saveTasks();
-
+    this.saveToStorage();
     return newTask;
   }
 
   deleteTask = (index) => {
     this.tasks.splice(index, 1);
-    this.saveTasks;
+    this.saveToStorage();
   }
-
-
 }

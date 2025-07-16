@@ -1,45 +1,19 @@
 import { renderTasks } from './helpers/renderTasks.js';
+import { DialogManager } from './helpers/DialogManager.js';
+import { TaskManager } from './helpers/TaskManager.js';
 import './TaskElement.js';
 
-// Dialog 
-const dialogButtons = {
-  add: document.getElementById('add-task'),
-  cancel: document.getElementById('cancel-task'),
-  submit: document.getElementById('submit-task'),
-};
-
-dialogButtons.add.addEventListener('click', () => dialog.showModal());
-dialogButtons.cancel.addEventListener('click', () => dialog.close());
-
-const dialog = document.getElementById('modern-dialog');
 const todoList = document.getElementById('todo-list');
-const taskTitle = document.getElementById('task-title');
-         
-let tasksArray = JSON.parse(localStorage.getItem('todo-tasks')) || [];
+const taskManager = new TaskManager();
 
-renderTasks(tasksArray, todoList);
+function updateDisplay() {
+  renderTasks(taskManager.getAllTasks(), todoList);
+}
 
-dialogButtons.submit.addEventListener('click', () => {
-  try {
-    // collect task info from form to create a new task object
-    const newTask = {
-      title: taskTitle.value, 
-      priority: document.getElementById('task-priority').value,
-      completed: false,                                   
-    };
+const dialogHandler = new DialogManager(taskManager, updateDisplay);
+const taskEvents = new TaskEvents(taskManager, todoList, updateDisplay);
 
-    tasksArray.push(newTask); // adds the new task to an array
-    localStorage.setItem('todo-tasks', JSON.stringify(tasksArray))
-    renderTasks(tasksArray, todoList); // updates the display
-
-    console.log(newTask);
-    taskTitle.value = '';
-    dialog.close();
-  } catch (error) {
-    console.error('Failed to add task:', error);
-    alert('Something went wrong while adding your task. Please try again.');
-  }
-});
+updateDisplay();
 
 // Event Delegation for delete children of the todo list
 todoList.addEventListener('click', e => {
