@@ -26,10 +26,18 @@ export class TaskManager {
 
   toggleTask = (index) => {
     if (this.tasks[index]) {
-      this.tasks[index].completed = !this.tasks[index].completed;
+      const task = this.tasks[index];
+
+      task.completed = !task.completed;
+
+      this.tasks.splice(index, 1);
+
+      if (task.completed) {
+        this.tasks.push(task);
+      }
+
       this.saveToStorage();
-      
-      return this.tasks[index];
+      return task;
     }
   }
 
