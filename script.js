@@ -33,6 +33,8 @@ todoList.addEventListener('click', e => {
 
     const updatedTask = taskManager.toggleTask(taskIndex);
 
+    updateDisplay();
+
     // Update the UI elements
     const taskItem = button.closest('.task-item');
     const taskText = taskItem.querySelector('.task-title');
