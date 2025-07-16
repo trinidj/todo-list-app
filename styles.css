@@ -342,19 +342,22 @@ input[type="text"]:focus {
   font-size: var(--text-xs);
 }
 
-.priority-low {
+.priority-low,
+.filter-low.active {
   border-color: var(--low-priority);
   color: var(--low-priority);
   background-color: hsl(from var(--low-priority) h s l / 0.1);
 }
 
-.priority-medium {
+.priority-medium,
+.filter-medium.active {
   border-color: var(--medium-priority);
   color: var(--medium-priority);
   background-color: hsl(from var(--medium-priority) h s l / 0.1);
 }
 
-.priority-high {
+.priority-high,
+.filter-high.active {
   border-color: var(--high-priority);
   color: var(--high-priority);
   background-color: hsl(from var(--high-priority) h s l / 0.1);
@@ -377,4 +380,9 @@ input[type="text"]:focus {
   border: 1px solid var(--base-lighter);
   border-radius: 7px;
   color: hsl(from #ffffff h s calc(l - 5) / 0.5);
+  transition: all 0.1s ease-in-out;
+}
+
+.filter-button:hover {
+  cursor: pointer;
 }
