@@ -23,4 +23,17 @@ export class TaskManager {
     this.tasks.splice(index, 1);
     this.saveToStorage();
   }
+
+  toggleTask = (index) => {
+    if (this.tasks[index]) {
+      this.tasks[index].completed = !this.tasks[index].completed;
+      this.saveToStorage();
+      
+      return this.tasks[index];
+    }
+  }
+
+  saveToStorage = () => {
+    localStorage.setItem('todo-tasks', JSON.stringify(this.tasks));
+  }
 }
