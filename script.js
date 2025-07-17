@@ -83,6 +83,14 @@ filterTasks.addEventListener('click', e => {
   }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const allButton = document.querySelector('.filter-all');
+
+  if (allButton) {
+    allButton.classList.toggle('active');
+  }
+})
+
 updateDisplay();
 
 
