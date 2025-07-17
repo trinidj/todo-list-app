@@ -1,14 +1,19 @@
 import { DialogManager } from './helpers/DialogManager.js';
 import { TaskManager } from './helpers/TaskManager.js';
 import { renderTasks } from './helpers/renderTasks.js';
+import { filterTasksByPriority } from './helpers/filterTasksByPriority.js';
 import './Task.js';
 
 const todoList = document.getElementById('todo-list');
 const filterTasks = document.getElementById('filter-actions');
 const taskManager = new TaskManager();
 
+let filter = 'all';
+
 function updateDisplay() {
-  renderTasks(taskManager.getAllTasks(), todoList);
+  const allTasks = taskManager.getAllTasks();
+  const filteredTasks = filterTasksByPriority(allTasks, filter);
+  renderTasks(filteredTasks, todoList);
 }
 
 const dialogHandler = new DialogManager(taskManager, updateDisplay);
@@ -52,16 +57,26 @@ todoList.addEventListener('click', e => {
 
 // Event Delegation for Filtering Tasks by Priority
 filterTasks.addEventListener('click', e => {
-  const button = e.target.classList.contains('filter-button') ? e.target : e.target.closest('.filter-button');
+  const button = e.target.classList.contains('filter-button') ? e.target : e.target.closest('.filter-button'); 
 
+  // UI Elements
   if (button) {
     button.classList.toggle('active');
 
     const isActive = button.classList.contains('active');
     button.dataset.state = isActive;
+
+    if (button.classList.contains('filter-low')) {
+      filter = 'low';
+    } else if (button.classList.contains('filter-medium')) {
+      filter = 'medium';
+    } else if (button.classList.contains('filter-high')) {
+      filter = 'high';
+    }
+
+    updateDisplay();
   }
 });
-
 
 updateDisplay();
 
