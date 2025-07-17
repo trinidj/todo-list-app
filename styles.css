@@ -373,6 +373,10 @@ input[type="text"]:focus {
   gap: var(--spacing-xs);
 }
 
+.filter-all.active {
+  background-color: hsl(from var(--base-lighter) h s l / 0.5);
+}
+
 .filter-button {
   padding-inline: var(--spacing-sm);
   font-size: var(--text-sm);
