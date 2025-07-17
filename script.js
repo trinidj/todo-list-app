@@ -61,12 +61,17 @@ filterTasks.addEventListener('click', e => {
 
   // UI Elements
   if (button) {
+    const allFilterButtons = filterTasks.querySelectorAll('.filter-button');
+    allFilterButtons.forEach(btn => btn.classList.remove('active'));
+
     button.classList.toggle('active');
 
     const isActive = button.classList.contains('active');
     button.dataset.state = isActive;
 
-    if (button.classList.contains('filter-low')) {
+    if (button.classList.contains('filter-all')) {
+      filter = 'all';
+    } else if (button.classList.contains('filter-low')) {
       filter = 'low';
     } else if (button.classList.contains('filter-medium')) {
       filter = 'medium';
