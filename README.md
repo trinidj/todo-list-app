@@ -1,4 +1,4 @@
-# To-Do List App - Learning Project
+# 📝 To-Do List App - Learning Project
 
 ![To-Do List Screenshot](/assets/images/screenshot.png)
 
