@@ -72,11 +72,8 @@ body {
 .todo-section {
   background-color: var(--base-dark);
   border-radius: 20px;
-}
-
-.todo-section {
   width: 380px;
-}                                                           
+}                                                        
 
 .todo-header {
   display: flex;
